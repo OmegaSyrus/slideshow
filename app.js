@@ -12,6 +12,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+serverip = process.env.OPENSHIFT_NODEJS_IP;
+serverport = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
@@ -66,6 +69,6 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 
-app.listen(3000, '127.1.1.1');
+app.listen(serverport, serverip);
 
 console.log('Static Express Server Running at http://127.0.0.1:3000  CNTL-C to quit');
