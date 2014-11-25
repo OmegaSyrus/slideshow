@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  var display = 'first'
+  if (display === 'first') 
+	img(src = "mc.jpg")
+  else if (display === 'second') 
+	img(src = "troll.png")
+  else if (display === 'third') 
+	img(src = "daft.jpg")
